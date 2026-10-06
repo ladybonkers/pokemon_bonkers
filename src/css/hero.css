@@ -1,0 +1,169 @@
+/* =========================================================
+   Hero — Inspired by the pixelart style by Nyamocchi
+============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--header-h) + 60px) 24px 60px;
+  overflow: hidden;
+}
+
+/* ---- 3 Background ---- */
+.hero-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 33.34%;
+  z-index: 0;
+  transition: flex .3s;
+}
+
+.hero-panel--day {
+  left: 0;
+  background:
+    linear-gradient(to bottom,
+      #7ec8f0 0%,
+      #a8d8f0 40%,
+      #d0e8f5 70%,
+      #e8f0e0 100%
+    );
+}
+
+.hero-panel--dusk {
+  left: 33.33%;
+  background:
+    linear-gradient(to bottom,
+      #f5a623 0%,
+      #f5c05a 35%,
+      #f5d88a 60%,
+      #e8c060 100%
+    );
+}
+
+.hero-panel--night {
+  left: 66.66%;
+  background:
+    linear-gradient(to bottom,
+      #1a2a5a 0%,
+      #2a3a7a 40%,
+      #3a4a9a 70%,
+      #1a2a4a 100%
+    );
+}
+
+/* Dark overlay to ensure text readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(10,14,20,.5) 0%, rgba(10,14,20,.85) 70%);
+  z-index: 1;
+}
+
+/* Little stars on the night panels */
+.hero-panel--night::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 60% 20%, white, transparent),
+    radial-gradient(1px 1px at 80% 60%, white, transparent),
+    radial-gradient(1px 1px at 40% 70%, white, transparent),
+    radial-gradient(2px 2px at 70% 80%, white, transparent);
+  opacity: .7;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: .4; }
+  to   { opacity: .9; }
+}
+
+/* ---- Content ---- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--pikachu);
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.8rem, 5.5vw, 3.6rem);
+  line-height: 1.4;
+  letter-spacing: -1px;
+  margin-bottom: 28px;
+  text-shadow: 4px 4px 0 rgba(0,0,0,.6);
+}
+
+.hero-title .accent {
+  color: var(--pikachu);
+  text-shadow: 4px 4px 0 var(--pokeball-d), 6px 6px 0 rgba(0,0,0,.4);
+}
+
+.hero-sub {
+  font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  color: var(--gray-soft);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Scroll ---- */
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-pixel2);
+  font-size: .7rem;
+  color: var(--gray);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gray), transparent);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0%   { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero { min-height: 90vh; padding-top: calc(var(--header-h) + 40px); }
+  .hero-title { font-size: clamp(1.4rem, 7vw, 2.4rem); }
+  .hero-sub { font-size: .95rem; }
+  .hero-scroll { display: none; }
+}

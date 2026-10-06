@@ -1,173 +1,156 @@
-:root{
-    --darkgreen: #0A3323;
-    --mossgreen: #839958;
-    --beige: #F7F4D5;
-    --rosybrown: #D3968C;
-    --midnightgreen: #105666;
+/* =========================================================
+   Base — variables, typograph, scanlines. 
+============================================================ */
 
+:root {
+  /* ---- Principal colors ---- */
+  --bg:          #0a0e14;
+  --bg-soft:     #11161f;
+  --bg-card:     #151b25;
+  --border:      rgba(255,255,255,.08);
+  --border-soft: rgba(255,255,255,.04);
+
+  --white:       #eef2f6;
+  --gray:        #8a95a4;
+  --gray-soft:   #b8c0cc;
+
+  /* ---- Nostalgic colors ---- */
+  --pokeball:    #ee1515;
+  --pokeball-d:  #b01010;
+  --pikachu:     #ffcb05;
+  --pikachu-d:   #d9a800;
+  --gb-green:    #8bac0f;
+  --gb-dark:     #0f380f;
+  --gb-screen:   #9bbc0f;
+
+  /* ---- Type ---- */
+  --type-fire:     #ff6b3d;
+  --type-water:    #4a9eff;
+  --type-grass:    #5fcf5f;
+  --type-electric: #ffcb05;
+  --type-psychic:  #ff5c9d;
+  --type-ice:      #6ee7ff;
+  --type-dragon:   #7c5cff;
+  --type-dark:     #4a4a5e;
+  --type-fairy:    #ff9ec7;
+  --type-normal:   #a8a878;
+  --type-fighting: #c03028;
+  --type-flying:   #a890f0;
+  --type-poison:   #a040a0;
+  --type-ground:   #e0c068;
+  --type-rock:     #b8a038;
+  --type-bug:      #a8b820;
+  --type-ghost:    #705898;
+  --type-steel:    #b8b8d0;
+
+  /* ---- Typography ---- */
+  --font-pixel:  "Press Start 2P", monospace;
+  --font-pixel2: "Silkscreen", monospace;
+  --font-mono:   "VT323", monospace;
+  --font-body:   "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Layout ---- */
+  --radius:     6px;
+  --radius-lg:  10px;
+  --max:        1200px;
+  --header-h:   72px;
 }
 
-*{
-    margin: 0;
-    color: var(--darkgreen);
-    padding: 0%;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    font-family: 'Poppins', sans-serif;
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
 }
 
-html{
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+/* ============ Scanlines ============ */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0,0,0,.15) 2px,
+    rgba(0,0,0,.15) 3px
+  );
+  mix-blend-mode: multiply;
+  opacity: .35;
 }
 
-body{
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    background-color: var(--beige);
-    color: var(--darkgreen);
+/* ============ Utilities ============ */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-header{
-    margin: 0;
-    position: absolute;
-    top:0%;
-    left: 0%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.accent { color: var(--pikachu); }
+.accent-red { color: var(--pokeball); }
 
-
+/* ============ buttons ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-family: var(--font-pixel2);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  transition: transform .15s ease, background .2s, box-shadow .2s, color .2s;
+  cursor: pointer;
+  position: relative;
 }
 
-h1{
-    font-size: 60px;
-    text-align: center;
+.btn-primary {
+  background: var(--pokeball);
+  color: var(--white);
+  border-color: var(--pokeball);
+  box-shadow: 0 4px 0 var(--pokeball-d);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pokeball-d);
+}
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--pokeball-d);
 }
 
-p{
-    font-size: 16px;
-    line-height: 2;
-    letter-spacing: 1px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--pikachu);
+  color: var(--pikachu);
+  transform: translateY(-2px);
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--mossgreen);
-  color: var(--rosybrown);
-  font-size: 1.4rem;
-  font-weight: 500;
+/* ============ selection ============ */
+::selection {
+  background: var(--pikachu);
+  color: var(--bg);
 }
 
-section{
-    min-height: 100vh;
-    padding: 5rem 9% 5rem;
+/* ============ Scrollbar ============ */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-soft); }
+::-webkit-scrollbar-thumb {
+  background: var(--pokeball);
+  border-radius: 5px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--pokeball-d); }
 
-/*⏔⏔⏔ ꒰ Section ꒱ ⏔⏔⏔*/
-.home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-    background-color: var(--mossgreen);
-}
-.home nav{
-    font-size: large;
-}
-
-
-/* Section Pokemon */
-.pokemon{
-    padding-top: 30px;
-    margin: auto;
-    background-color: var(--beige);
-}
-
-.pokemon h1{
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 20px;
-    color: var(--darkgreen);
-}
-
-.pokemon p{
-    text-align: center;
-    font-size: 1.8rem;
-    line-height: 1.8;
-    color: var(--darkgreen);
-}
-
-.pokemon div{
-    text-align: center;
-}
-
-/* Section community */
-.community{
-    margin: 10;
-    padding-top: 30px;
-    background-color: var(--beige);
-}
-
-.community h1{
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 20px;
-    color: var(--darkgreen);
-}
-
-.community h2{
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--darkgreen);
-}
-
-.community p{
-    text-align: center;
-    font-size: 1.8rem;
-    line-height: 1.8;
-    color: var(--darkgreen);
-}
-
-.community div{
-    text-align: center;
-    margin: auto;
-}
-
-/* Section History */
-.history{
-    padding-top: 30px;
-    margin: auto;
-    background-color: var(--mossgreen);
-}
-
-.history h1{
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 20px;
-    color: var(--darkgreen);
-}
-
-.history h2{
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--darkgreen);
-}
-
-.history p{
-    text-align: center;
-    font-size: 1.8rem;
-    line-height: 1.8;
-    color: var(--darkgreen);
-}
-
-.history div{
-    text-align: center;
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .container { padding: 0 18px; }
 }

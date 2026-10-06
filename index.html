@@ -1,132 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-     <link rel="icon" type="image/png" href="./src/assets/pokeball.png">
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-     <link rel="stylesheet" href="./src/css/style.css">
-    <title> Project Pokemon </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex — Bonkers.</title>
+  <meta name="description" content="A nostalgic Pokémon Pokédex + quiz, built by Júlia." />
+  <link rel="icon" type="image/png" href="./src/assets/pokeball.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/src/css/reset.css" />
+  <link rel="stylesheet" href="/src/css/style.css" />
+  <link rel="stylesheet" href="/src/css/header.css" />
+  <link rel="stylesheet" href="/src/css/hero.css" />
 </head>
-
 <body>
-    <header id="header">
-        <a href="#" class="logo"></a>
-        <nav>
-        <img src="./src/assets/banner2.png" width="1460" height="300"/>
-        </nav>
-        <i class="fa-solid fa-bars" id="menu-icon"></i>
-    </header>
 
-    <section id="home" class="home">
-        <div class="home-content" style="text-align: center">
-        <h1> Welcome to our little community</h1>
-        <nav>
-            <a href="#home" > Home </a>
-            <a href="#pokemon?" > What is Pokemon? </a>
-            <a href="#history" > Pokemon History </a>
-            <a href="#favorites" > Community Favorites </a>
-        </nav>
-        </div>
-        </section>
+  <div class="scanlines" aria-hidden="true"></div>
 
-    <section id="What is Pokemon" class="pokemon">
-    <div class="pokemon">
-        <div>
-            <h1> What is Pokémon?</h1>
-            <p> Pokémon (short for "Pocket Monsters") is a globally popular Japanese media franchise featuring creatures with special powers, 
-            created in 1996 by Satoshi Tajiri. It centers on humans capturing, training, and battling these creatures in video games, 
-            trading cards, and animated series. The franchise is built on themes of friendship, exploration, and strategy. The Concept of Pokémon are fictional creatures, inspired by real animals and insects, possessing elemental types (fire, water, electric, etc.). Trainers (often children) explore, capture Pokémon, and aim to become champions by winning battles, often against Gym Leaders.
-            </p>
-        </div>
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <a href="/index.html" class="logo">
+      <span class="logo-ball"></span>
+      <span class="logo-text">Poké<span>dex</span></span>
+    </a>
 
-        <br>
+    <nav class="nav" id="nav">
+      <a href="#pokedex">Pokédex</a>
+      <a href="#history">History</a>
+      <a href="#community">Community</a>
+      <a href="/quiz.html" class="nav-cta">Quiz ⚡</a>
+    </nav>
 
-        <div>
-            <h2> How it started </h2>
-            <p> In April 1998, Pokémon Center Co., Ltd. is established by the original authors of Pokémon: Nintendo Co., Ltd., Creatures Inc. and GAME FREAK inc. The company name was changed to The Pokémon Company in October 2000. Since then, our business activities have expanded to overall management of the Pokémon brand.</p>
-        </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-        <br>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <!-- 3 painéis inspirados na referência: dia / tarde / noite -->
+    <div class="hero-panel hero-panel--day"   aria-hidden="true"></div>
+    <div class="hero-panel hero-panel--dusk"  aria-hidden="true"></div>
+    <div class="hero-panel hero-panel--night" aria-hidden="true"></div>
 
-        <div>
-
-            <h2> Media Types </h2>
-
-            <p> Trading Card Game (TCG) a strategic card game where players use decks to battle. </p>
-                <img src="./src/assets/tcg.jpg" width="300" height="200"/>
-    
-            <p> Anime/Films an animated series following Ash Ketchum, who started with Pikachu. </p>
-                <img src="./src/assets/anime.jpeg" width="300" height="200"/>
-    
-            <p> Video Games role-playing games (RPGs) focusing on collecting and turn-based battle. </p>
-                <img src="./src/assets/game.jpg" width="300" height="200"/>
-        </div>
-
-        <br>
-
-        <div>
-            <h2> Why is it popular? </h2>
-            <p> It combines cute, memorable creature designs with a simple yet deep "rock-paper-scissors" style battle system, creating a shared global experience for all ages. </p>
-        </div>
+    <div class="hero-content">
+      <p class="hero-tag">press start!</p>
+      <h1 class="hero-title">
+        Catch it if<br>
+        <span class="accent">you can.</span>
+      </h1>
+      <p class="hero-sub">
+        A nostalgic Pokédex search, you can also see if you really know about Pokémon.
+      </p>
+      <div class="hero-actions">
+        <a href="#pokedex" class="btn btn-primary">Open Pokédex →</a>
+        <a href="./quiz.html" class="btn btn-ghost">Who's that Pokémon?!</a>
+      </div>
     </div>
-    </section>
 
-    <section id="Pokemon History" class="history">
-    <div class="history">
-        <div>
-            <h1> Pokemon History </h1>
-
-        <br>
-
-            <h2> Genesis </h2>
-                <p> In the beginning, there was nothing.
-                No stars. No time. No space. Only a silent, endless void formless and unmoving, stretching beyond comprehension. It was neither dark nor light, for such things did not yet exist. Then, without warning, an egg appeared. It hovered alone in the emptiness, radiating a faint, growing pulse. And from that egg, existence itself was born. Arceus. A being beyond form, beyond understanding its presence alone shattered the stillness. With its awakening came the first light, flooding the void with energy and purpose. Where there had been nothing, there was now potential. From its own essence, Arceus shaped three beings its first creations, its children: Dialga. Palkia. Giratina. Each carried a fragment of reality itself. Dialga roared and time began.
-                A flowing current, unstoppable and eternal. Palkia stretched its form and space unfolded. The void expanded, giving rise to stars, galaxies, and worlds. Giratina opened its burning eyes and antimatter emerged. A hidden force, balancing all that existed, ensuring that creation would not consume itself. Thus, the Universe was born. But creation came at a cost.
-                Each of the three saw their domain as supreme. Time sought to dominate all. Space bent and warped under its own expansion. Antimatter clawed at reality, threatening to unravel it entirely. Conflict erupted. Time fractured. Space twisted. Shadows spread. The Universe trembled on the edge of collapse. And so, Arceus acted. With a force that silenced existence itself, it ended the war banishing each of its children into separate realms and sealing much of their power within three sacred orbs.
-                Balance was restored. For now. </p>
-        </div>
-
-        <br>
-
-        <div>
-            <h2> Earth </h2>
-
-                <p> With the cosmos stabilized, Arceus turned its gaze to a single world—a quiet planet formed within Palkia’s vast creation.
-                There, it began anew. This time, it created not rulers of reality, but shapers of life: Groudon. Kyogre. Rayquaza. Groudon rose first, dragging continents from the planet molten core. Mountains split the sky, and land claimed its place. Kyogre followed, summoning endless oceans that flooded the world, bringing motion, depth, and the promise of life. And above them both, Rayquaza descended—filling the heavens with air, binding sky to sea and land. Yet even this world was not free from conflict. Land and sea clashed endlessly. Continents rose and sank. Oceans surged and retreated. But Rayquaza stood between them—silent, watchful, and unyielding. Not a ruler. Not a conqueror. A guardian of balance. Through its presence, harmony—fragile though it was—endured.
-                And so the planet was named: Earth. As ages passed, the chaos softened. Groudon slept beneath the crust. Kyogre drifted into the abyssal depths. Rayquaza remained above, ever watchful. The world was ready. And Arceus vision was far from complete.</p>
-        </div>
-
-        <br>
-
-        <div>
-            <h2> The Age of Life </h2>
-
-            <p>From the quiet Earth, Arceus created something entirely new. Not gods. Not forces. But life.First came the smallest forms tiny, unseen, yet unstoppable. They spread across oceans and land, adapting, evolving, changing. Then came greater beings. Creatures of water, land, and sky. Some fierce. Some gentle. Some wise. To guide this growing world, Arceus created new guardians: Beings of knowledge, emotion, and will, spirits tied to nature itself, watchers of balance, hidden among the living. Time flowed. Space expanded. Balance held. But deep beyond reality…Something stirred. In the silent realm where Giratina had been cast, a distortion began to grow. Not chaos. Not destruction. But something far more dangerous. A desire to return.</p>
-        </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
-    </section>
-    
-    <section id="Community Favorites" class="community">
-    <div class="community">
-        <div style="text-align: center">
-            <h2> Community Favorites </h2>
+  </section>
 
-            <div style="text-align: center">
-                <a href="https://pokemon.fandom.com/wiki/Magikarp"><img src="./src/assets/Magikarp.png" width="90" height="90"/> </a>
-                <a href="https://pokemon.fandom.com/wiki/Charizard"><img src="./src/assets/Charizard.png" width="90" height="90"/> </a>
-                <a href="https://pokemon.fandom.com/wiki/Mimikyu"><img src="./src/assets/Mimikyu.png" width="90" height="90"/> </a>
-                <a href="https://pokemon.fandom.com/wiki/Gengar"><img src="./src/assets/Gengar.png" width="90" height="90"/> </a>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam suscipit quisquam dolores nulla illo asperiores quos dolor itaque quibusdam officia numquam, aspernatur maxime provident expedita error tempore placeat obcaecati vel.</p>
-            </div>
-        </div>
-    </div>
-    </section>
-    <footer>
-        <small>
-        Copyright © 2025 Júlia Mateini. All Rights Reserved.
-        </small>
-    </footer>
+  <script src="/src/js/script.js"></script>
 </body>
 </html>
